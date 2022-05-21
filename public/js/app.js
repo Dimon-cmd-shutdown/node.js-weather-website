@@ -17,11 +17,16 @@ weatherForm.addEventListener('submit', (event) => {
 
         response.json().then(({ location, temperature, feelsLikeTemp, error }) => {
             if (error) {
-                return messageOne.textContent = error
+                messageOne.textContent = error
+                messageTwo.textContent = ''
+                messageThree.textContent = ''
             }
-            messageOne.textContent = location
-            messageTwo.textContent = `Temperature: ${temperature}`
-            messageThree.textContent = `Feels like: ${feelsLikeTemp}`
+            else {
+                messageOne.textContent = location
+                messageTwo.textContent = `Temperature: ${temperature}`
+                messageThree.textContent = `Feels like: ${feelsLikeTemp}`
+            }
+
         })
 
     })
